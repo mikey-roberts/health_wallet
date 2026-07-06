@@ -11,6 +11,11 @@ Rails.application.routes.draw do
 
   resources :patients, only: [ :index, :show ]
   resources :assessments, only: [ :show, :edit, :update ]
+  resources :lab_uploads, only: [ :index, :create ] do
+    member do
+      get :status
+    end
+  end
 
   # Defines the root path route ("/")
   root "home#index"
