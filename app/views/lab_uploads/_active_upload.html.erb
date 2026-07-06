@@ -1,0 +1,10 @@
+<% if active_upload.present? %>
+  <div class="upload-status-panel" id="active-upload-status" data-upload-id="<%= active_upload.id.to_s %>">
+    <div>
+      <h2>Current Upload</h2>
+      <p><strong>File:</strong> <%= active_upload.file %></p>
+    </div>
+    <span class="status-pill status-<%= active_upload.status %>" data-status-target="activeStatus"><%= active_upload.status.capitalize %></span>
+  </div>
+  <p class="status-help" data-status-target="activeError"><%= active_upload.error_message %></p>
+<% end %>

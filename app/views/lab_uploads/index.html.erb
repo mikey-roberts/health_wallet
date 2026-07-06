@@ -1,0 +1,21 @@
+<div class="lab-upload-page" data-controller="lab-upload-status" data-lab-upload-status-upload-id-value="<%= @active_upload&.id&.to_s %>">
+  <div class="lab-upload-shell">
+    <div class="lab-upload-header">
+      <%= link_to "← Back to Patients", patients_path, class: "back-link" %>
+      <h1>Upload Lab Results</h1>
+      <p>Upload HL7-formatted lab results. Processing happens in the background.</p>
+    </div>
+
+    <% if notice %>
+      <div class="flash-notice"><%= notice %></div>
+    <% end %>
+
+    <% if alert %>
+      <div class="flash-alert"><%= alert %></div>
+    <% end %>
+
+    <%= render "form" %>
+    <%= render "active_upload", active_upload: @active_upload %>
+    <%= render "history", uploads: @uploads %>
+  </div>
+</div>

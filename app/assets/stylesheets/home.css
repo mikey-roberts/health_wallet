@@ -29,7 +29,7 @@
   margin: 0 0 var(--spacing-xl) 0;
 }
 
-.home-link {
+.home-link, .lab-upload-link {
   display: inline-block;
   background: var(--gradient-primary);
   color: var(--color-white);
@@ -42,7 +42,7 @@
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.home-link:hover {
+.home-link:hover, .lab-upload-link:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-primary);
 }

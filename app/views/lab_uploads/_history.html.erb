@@ -1,0 +1,32 @@
+<div class="uploads-history">
+  <h2>Recent Uploads</h2>
+
+  <% if uploads.any? %>
+    <table class="uploads-table">
+      <thead>
+        <tr>
+          <th>File</th>
+          <th>Status</th>
+          <th>Created</th>
+          <th>Completed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% uploads.each do |upload| %>
+          <tr id="upload-<%= upload.id.to_s %>">
+            <td><%= upload.file %></td>
+            <td>
+              <span class="status-pill status-<%= upload.status %>" data-upload-status="<%= upload.id.to_s %>">
+                <%= upload.status.capitalize %>
+              </span>
+            </td>
+            <td><%= upload.created_at&.strftime("%Y-%m-%d %H:%M:%S") %></td>
+            <td data-upload-completed-at="<%= upload.id.to_s %>"><%= upload.completed_at&.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="empty-state">No uploads yet.</div>
+  <% end %>
+</div>
